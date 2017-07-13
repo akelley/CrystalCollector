@@ -1,0 +1,132 @@
+body {
+	background: url("../images/crystals.jpg");
+	background-repeat: no-repeat;
+	max-width: 100%;
+	height: auto;
+	background-size: cover;
+}
+
+.title {
+	background-color: #CA722B;
+	padding: 20px 10px;
+	text-align: center;
+	color: white;
+	font-size: 2em;
+	font-weight: bolder;
+	font-family: Impact, Charcoal, sans-serif;
+	width: 300px;
+	border-radius: 10px;
+	margin: 10px;
+	text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px yellow;
+	box-shadow: 5px 5px 3px black;
+}
+
+.desc {
+	background-color: #FBE6CD;
+	padding: 20px;
+	width: 600px;
+	height: 250px;
+	border-radius: 10px;
+	margin: 10px;
+	box-shadow: 5px 5px 3px black;
+}
+
+p {
+	color: grey;
+	font-size: 1.25em;
+	font-weight: lighter;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px yellow;
+	padding: 0 0 20px 0;
+}
+
+@-webkit-keyframes Rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.border {
+	border: 6px dashed yellow;
+  	-webkit-animation: Rotate 2s infinite linear;
+}
+
+.random{
+	float: left;
+	background-color: #5BC980;
+	padding: 20px;
+	width: 50px;
+	height: 40px;
+	border-radius: 10px;
+	margin: 5px 10px;
+	box-shadow: 5px 5px 3px black;
+	text-align: center;
+	color: black;
+	font-size: 2.5em;
+	font-weight: bold;
+	font-family: Impact, Charcoal, sans-serif;	
+	text-shadow: 0 0 1px #FF0000, 0 0 3px #0000FF;
+
+}
+
+.scoreboard {
+	float: left;
+	background-color: #4AFDFE;
+	padding: 20px 0px 20px 20px;
+	width: 430px;
+	height: 40px;
+	border-radius: 10px;
+	margin: 5px 10px;
+	box-shadow: 5px 5px 3px black;
+	color: black;
+	font-size: 2.5em;
+	font-weight: bold;
+	font-family: Impact, Charcoal, sans-serif;	
+	text-shadow: 0 0 1px #FF0000, 0 0 3px #0000FF;
+}
+
+.crystals {
+	clear: both;
+}
+
+img {
+	margin: 10px 2px 10px 10px;
+	height: 75px;
+	width: 75px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 3px black;
+}
+
+.header {
+	background-color: #FBE6CD;
+	padding: 6px 5px 5px 10px;
+	width: 100px;
+	height: 20px;
+	border-radius: 10px;
+	margin: 5px 10px;
+	box-shadow: 5px 5px 3px black;
+	color: white;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: Impact, Charcoal, sans-serif;	
+	text-shadow: 0 0 1px #FF0000, 0 0 2px #0000FF;
+}
+
+.score {
+	background-color: #FBE6CD;
+	padding: 13px 7px 0px 7px;
+	width: 100px;
+	height: 80px;
+	border-radius: 10px;
+	margin: 10px;
+	box-shadow: 5px 5px 3px black;
+	color: white;
+	font-size: 4em;
+	font-weight: bold;
+	font-family: Impact, Charcoal, sans-serif;	
+	text-shadow: 0 0 5px #FF0000, 0 0 7px #0000FF;
+	text-align: center;
+}
