@@ -1,110 +1,109 @@
-var ruby = 0;
-var sapphire = 0;
-var topaz = 0;
-var emerald = 0;
+var game = {
+	ruby: 0,
+	sapphire: 0,
+	topaz: 0,
+	emerald: 0,
 
-var wins = 0;
-var losses = 0;
-var score = 0;
-var random = Math.floor(Math.random() * 101) + 19;
+	wins: 0,
+	losses: 0,
+	score: 0,
+	random: 0,
 
-function setGemValues(){
-	ruby = Math.floor(Math.random() * 12) + 1;
-	
-	sapphire = Math.floor(Math.random() * 12) + 1;
-	while(sapphire == ruby){
-		sapphire = Math.floor(Math.random() * 12) + 1;
+	setValues: function() {
+		this.random = Math.floor(Math.random() * 101) + 19;
+		$(".random").text(this.random);
+		this.ruby = Math.floor(Math.random() * 12) + 1;
+		
+		this.sapphire = Math.floor(Math.random() * 12) + 1;
+		while(this.sapphire == this.ruby){
+			this.sapphire = Math.floor(Math.random() * 12) + 1;
+		}
+
+		this.topaz = Math.floor(Math.random() * 12) + 1;
+		while(this.topaz == this.sapphire || this.topaz == this.ruby){
+			this.topaz = Math.floor(Math.random() * 12) + 1;
+		}
+
+		this.emerald = Math.floor(Math.random() * 12) + 1;
+		while(this.emerald == this.sapphire || this.emerald == this.ruby || this.emerald == this.topaz){
+			this.emerald = Math.floor(Math.random() * 12) + 1;
+		}
+	},
+
+	winning: function(){
+		this.wins++;
+		$(".scoreboard").html("Wins:&nbsp;&nbsp;" + this.wins + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Losses:&nbsp;&nbsp;" + this.losses);	
+		this.score = 0;
+		$(".score").text(this.score);
+		this.setValues();
+	},
+
+	losing: function(){
+		this.losses++;
+		$(".scoreboard").html("Wins:&nbsp;&nbsp;" + this.wins + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Losses:&nbsp;&nbsp;" + this.losses);
+		this.score = 0;
+		$(".score").text(this.score);
+		this.setValues();
 	}
-
-	topaz = Math.floor(Math.random() * 12) + 1;
-	while(topaz == sapphire || topaz == ruby){
-		topaz = Math.floor(Math.random() * 12) + 1;
-	}
-
-	emerald = Math.floor(Math.random() * 12) + 1;
-	while(emerald == sapphire || emerald == ruby || emerald == topaz){
-		emerald = Math.floor(Math.random() * 12) + 1;
-	}
-}
-
-function winning(){
-	wins++;
-	$(".scoreboard").html("Wins:&nbsp;&nbsp;" + wins + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Losses:&nbsp;&nbsp;" + losses);
-	
-	score = 0;
-	$(".score").text(score);
-	random = Math.floor(Math.random() * 101) + 19;
-	$(".random").text(random);
-	setGemValues();
-}
-
-function losing(){
-	losses++;
-	$(".scoreboard").html("Wins:&nbsp;&nbsp;" + wins + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Losses:&nbsp;&nbsp;" + losses);
-	score = 0;
-	$(".score").text(score);
-	random = Math.floor(Math.random() * 101) + 19;
-	$(".random").text(random);
-	setGemValues();
-}
+};
 
 $(document).ready(function(){
-	setGemValues();
+	game.setValues();
 
-	$(".score").text(score);
-	$(".random").text(random);
-	$(".scoreboard").html("Wins:&nbsp;&nbsp;" + wins + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Losses:&nbsp;&nbsp;" + losses);
+	$(".score").text(game.score);
+	$(".random").text(game.random);
+	$(".scoreboard").html("Wins:&nbsp;&nbsp;" + game.wins + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Losses:&nbsp;&nbsp;" + game.losses);
 
-	if(score < random){
+	if(game.score < game.random){
 		$(".ruby").on("click", function(){
-			score += ruby;
-			$(".score").text(score);
+			game.score += game.ruby;
+			$(".score").text(game.score);
 			
-			if(score == random){
-				winning();
+			if(game.score == game.random){
+				game.winning();
 			}
 
-			if(score > random){
-				losing();
+			if(game.score > game.random){
+				game.losing();
 			}
 		})
 
 		$(".sapphire").on("click", function(){
-			score += sapphire;
-			$(".score").text(score);
+			game.score += game.sapphire;
+			$(".score").text(game.score);
 
-			if(score == random){
-				winning();
+			if(game.score == game.random){
+				game.winning();
 			}
 
-			if(score > random){
-				losing();
+			if(game.score > game.random){
+				game.losing();
 			}
 		})
 
 		$(".topaz").on("click", function(){
-			score += topaz;
-			$(".score").text(score);
+			game.score += game.topaz;
+			$(".score").text(game.score);
 
-			if(score == random){
-				winning();
+			if(game.score == game.random){
+				game.winning();
 			}
 
-			if(score > random){
-				losing();
+			if(game.score > game.random){
+				game.losing();
 			}
 		})
 
 		$(".emerald").on("click", function(){
-			score += emerald;
-			$(".score").text(score);
+			game.score += game.emerald;
+			$(".score").text(game.score);
 
-			if(score == random){
-				winning();
+			if(game.score == game.random){
+				game.winning();
 			}
 
-			if(score > random){
-				losing();
+			if(game.score > game.random){
+				game.losing();
 			}
 		})
 	}
